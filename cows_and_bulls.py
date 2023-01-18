@@ -1,8 +1,8 @@
 import random
 
 def compare(input):
-    #random_number = str(random.randint(1000, 9999))
-    random_number = "8971"
+    random_number = str(random.randint(1000, 9999))
+    #random_number = "1234"
     cow = 0
     bull = 0
     for i in range(4):
@@ -10,15 +10,19 @@ def compare(input):
             cow += 1
         else:
             bull += 1
-    print(random_number)
+    #print(random_number)
     print("{cow} cows, {bull} bulls".format(cow = cow, bull = bull))
     return cow
 
 while True:
     while True:
-        user_input = input("Please guess the number: ")
-        if int(user_input) > 999 and int(user_input) < 10000:
-            break
+        user_input = input("Please guess the number: ") 
+        if user_input.isdigit():
+            if len(user_input) == 4:
+                break
+            else:
+                print("Wrong input. Try again!")
+                continue                
         else:
             print("Wrong input. Try again!")
             continue
@@ -27,10 +31,10 @@ while True:
         print("Success!")
         break
     else:
-        run_input = input("Try again: Yes or No? ").lower()
-        if run_input == "yes":
-            continue
-        elif run_input == "no":
+        run_input = input("Try again or exit? ").lower()
+        if run_input == "exit":
             break
+        else:
+            continue
 
     
